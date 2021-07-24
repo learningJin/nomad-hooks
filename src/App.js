@@ -2,32 +2,35 @@
 import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
-const useClick = (onClick) => {
-    const element = useRef();
+const useConfirm = (msg, callback, reject) => {
+    if(typeof callback !== 'function') {
+        return;
+    }
 
-    useEffect( () => {
-        if(element.current){
-            element.current.addEventListener('click', onClick);
+    const confirmAction = () => {
+        if(window.confirm(msg)){
+            callback();
+        } else {
+            reject();
         }
-        return ()=>{
-            if(element.current){
-                element.current.removeEventListener('click', onClick);
-            }
-        }
-    },[])
-    
-    return element;
-}
+    }
+
+    return confirmAction;
+
+};
 
 const App = () => {
-    const onClick = () => {
-        console.log('say Hello');
+    const deleteTheWorld = () => {
+        console.log('sdffsf')
     }
-    const title = useClick(onClick);
+    const abort = () => {
+        console.log('aborted');
+    }
+    const confirmDelete = useConfirm('are you sure?', deleteTheWorld, abort);
 
     return (
         <div className="App">
-            <h2 ref={title}>hi</h2>
+            <button onClick={confirmDelete}>delete the world</button>
         </div>
     );
 } 
