@@ -1,14 +1,11 @@
 
 import './App.css';
-import React, { useState } from 'react';
-
-import useInput from './useInput';
-import useTabs from './useTabs';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
-
     return (
         <div className="App">
+            
         </div>
     );
 }
