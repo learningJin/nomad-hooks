@@ -2,38 +2,38 @@
 import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
-const useFadeIn = (duration = 1, delay = 0) => {
-    // if(typeof duration !== 'number'){
-    //     return;
-    // }
+const useNetwork = (onChange) => {
+    const [status, setStatus] = useState(navigator.onLine);
 
-    const element = useRef();
+    const handleChange = () => {
+        if (typeof onChange === 'function') {
+            onChange(navigator.onLine);
+        }
+        setStatus(navigator.onLine);
+    };
 
     useEffect(() => {
-        
-        if (element.current) {
-            console.log(element);
-            const { current } = element;
-            current.style.transition = `opacity ${duration}s ease-in-out ${delay}s`;;
-            current.style.opacity = 1;
+        window.addEventListener('online', handleChange);
+        window.addEventListener('offline', handleChange);
+
+        return () => {
+            window.removeEventListener('online', handleChange);
+            window.removeEventListener('offline', handleChange);
         }
     }, []);
-
-    return {
-        ref: element,
-        style: { opacity: 0 },
-    }
+    
+    return status;
 }
 
 const App = () => {
-
-    const fadeInH1 = useFadeIn(1, 2);
-    const fadeInP = useFadeIn(10, 5);
+    const onChange = (online) => {
+        console.log(online ? 'we just wnet online' : 'we are offline');
+    }
+    const online = useNetwork(onChange);
 
     return (
         <div className="App">
-            <h1 {...fadeInH1} >Hello</h1>
-            <p {...fadeInP}>asdfsdf gdggss sdffsdfdfsdf</p>
+            <h1>{online ? 'online' : 'offline'}</h1>
         </div>
     );
 }
