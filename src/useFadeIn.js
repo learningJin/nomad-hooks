@@ -1,5 +1,3 @@
-
-import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
 const useFadeIn = (duration = 1, delay = 0) => {
@@ -25,17 +23,22 @@ const useFadeIn = (duration = 1, delay = 0) => {
     }
 }
 
-const App = () => {
+export default useFadeIn;
 
-    const fadeInH1 = useFadeIn(1, 2);
-    const fadeInP = useFadeIn(10, 5);
+// import './App.css';
+// import React, { useEffect, useState, useRef } from 'react';
 
-    return (
-        <div className="App">
-            <h1 {...fadeInH1} >Hello</h1>
-            <p {...fadeInP}>asdfsdf gdggss sdffsdfdfsdf</p>
-        </div>
-    );
-}
+// const App = () => {
 
-export default App;
+//     const fadeInH1 = useFadeIn(1, 2);
+//     const fadeInP = useFadeIn(10, 5);
+
+//     return (
+//         <div className="App">
+//             <h1 {...fadeInH1} >Hello</h1>
+//             <p {...fadeInP}>asdfsdf gdggss sdffsdfdfsdf</p>
+//         </div>
+//     );
+// }
+
+// export default App;
