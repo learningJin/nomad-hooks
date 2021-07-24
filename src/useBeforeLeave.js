@@ -1,7 +1,3 @@
-
-import './App.css';
-import React, { useEffect, useState, useRef } from 'react';
-
 const useBeforeLeave = (onBefore) => {
     // if(typeof onBefore !== 'function'){
     //     return;
@@ -19,15 +15,23 @@ const useBeforeLeave = (onBefore) => {
     }, []);
 }
 
-const App = () => {
-    const begForLife = () => console.log('please don\'t leave');
-    useBeforeLeave(begForLife);
+export default useBeforeLeave;
 
-    return (
-        <div className="App">
-            <h1>hi</h1>
-        </div>
-    );
-}
 
-export default App;
+// import './App.css';
+// import React, { useEffect, useState, useRef } from 'react';
+
+
+
+// const App = () => {
+//     const begForLife = () => console.log('please don\'t leave');
+//     useBeforeLeave(begForLife);
+
+//     return (
+//         <div className="App">
+//             <h1>hi</h1>
+//         </div>
+//     );
+// }
+
+// export default App;
