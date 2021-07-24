@@ -1,5 +1,3 @@
-
-import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
 const useClick = (onClick) => {
@@ -19,17 +17,25 @@ const useClick = (onClick) => {
     return element;
 }
 
-const App = () => {
-    const onClick = () => {
-        console.log('say Hello');
-    }
-    const title = useClick(onClick);
 
-    return (
-        <div className="App">
-            <h2 ref={title}>hi</h2>
-        </div>
-    );
-} 
+export default useClick;
 
-export default App;
+// import './App.css';
+// import React, { useEffect, useState, useRef } from 'react';
+
+
+
+// const App = () => {
+//     const onClick = () => {
+//         console.log('say Hello');
+//     }
+//     const title = useClick(onClick);
+
+//     return (
+//         <div className="App">
+//             <h2 ref={title}>hi</h2>
+//         </div>
+//     );
+// } 
+
+// export default App;
