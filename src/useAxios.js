@@ -18,7 +18,7 @@ const useAxios = (opts, axiosInstance = defaultAxios) => {
             ...state,
             loading : true,
         });
-        setTrigger(Date().now);
+        setTrigger(Date());
     }
     useEffect(() => {
         axiosInstance(opts).then(response => {
