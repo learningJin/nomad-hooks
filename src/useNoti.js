@@ -1,5 +1,4 @@
 
-import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
 const useNoti = (title, options) => {
@@ -27,14 +26,18 @@ const useNoti = (title, options) => {
     return fireNoti; 
 }
 
-const App = () => {
-    const trigerNoti = useNoti('hi');
+export default useNoti;
 
-    return (
-        <div className="App" style={{ height: "1000vh" }}>
-            <button onClick={trigerNoti}>triger</button>
-        </div>
-    );
-}
+// import './App.css';
+// import React, { useEffect, useState, useRef } from 'react';
+// const App = () => {
+//     const trigerNoti = useNoti('hi');
 
-export default App;
+//     return (
+//         <div className="App" style={{ height: "1000vh" }}>
+//             <button onClick={trigerNoti}>triger</button>
+//         </div>
+//     );
+// }
+
+// export default App;
